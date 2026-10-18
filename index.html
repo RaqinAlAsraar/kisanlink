@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/leaf.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#272c1a" />
+    <meta name="description" content="KisanLink - Farmer-first digital platform for fair trade, local storage discovery, and AI crop diagnostics." />
+    <title>KisanLink | Kisan First Agricultural Platform</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body class="bg-cream text-charcoal font-sans antialiased min-h-screen selection:bg-lime-accent selection:text-charcoal">
+    <div id="root">
+      <!-- High-Fidelity Initial Preloader (Instant zero-flash loader before React bundles hydrate) -->
+      <div id="kisan-preloader" style="position: fixed; inset: 0; background: #fffeef; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; padding: 24px; text-align: center;">
+        <style>
+          @keyframes preloaderPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 16px rgba(159, 215, 0, 0.45)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 8px 28px rgba(159, 215, 0, 0.75)); }
+          }
+          @keyframes rippleExpand {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+          }
+          @keyframes preloaderBar {
+            0% { width: 0%; transform: translateX(-20%); }
+            40% { width: 65%; transform: translateX(0%); }
+            100% { width: 100%; transform: translateX(0%); }
+          }
+          @keyframes textBreathe {
+            0%, 100% { opacity: 0.75; }
+            50% { opacity: 1; }
+          }
+        </style>
+
+        <div style="position: relative; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+          <!-- Concentric Pulse Ripple Rings -->
+          <div style="position: absolute; inset: -10px; border-radius: 9999px; background: rgba(159, 215, 0, 0.2); animation: rippleExpand 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);"></div>
+          <div style="position: absolute; inset: 0; border-radius: 9999px; background: rgba(159, 215, 0, 0.35); animation: rippleExpand 2s infinite 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);"></div>
+
+          <!-- Central Glowing Sprout Badge -->
+          <div style="position: relative; width: 84px; height: 84px; border-radius: 28px; background: #272c1a; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(39, 44, 26, 0.25); animation: preloaderPulse 2.2s infinite ease-in-out; border: 2px solid rgba(159, 215, 0, 0.5);">
+            <span style="font-size: 40px; line-height: 1;">🌾</span>
+          </div>
+        </div>
+
+        <!-- Brand Name & Badge -->
+        <div style="margin-bottom: 8px;">
+          <h1 style="margin: 0; font-size: 28px; font-weight: 900; letter-spacing: -0.5px; color: #272c1a; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>KisanLink</span>
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #84cc16;"></span>
+            <span style="font-size: 14px; font-weight: 800; background: #9fd70030; color: #3d5500; padding: 2px 10px; border-radius: 9999px; border: 1px solid rgba(159, 215, 0, 0.6);">किसानलिंक</span>
+          </h1>
+        </div>
+
+        <p style="margin: 0 0 24px 0; font-size: 13px; font-weight: 600; color: #446158; max-width: 320px; line-height: 1.4;">
+          किसानों की डिजिटल मंडी और AI कृषि साथी<br>
+          <span style="font-size: 11px; color: #44615890;">Connecting Farmers to Fair Trade & APMC Markets</span>
+        </p>
+
+        <!-- Shimmer Preloading Progress Bar -->
+        <div style="width: 220px; height: 6px; background: rgba(68, 97, 88, 0.15); border-radius: 9999px; overflow: hidden; position: relative; margin-bottom: 14px;">
+          <div style="height: 100%; background: linear-gradient(90deg, #84cc16, #9fd700, #4ade80); border-radius: 9999px; animation: preloaderBar 1.8s infinite ease-in-out;"></div>
+        </div>
+
+        <!-- Micro Status Text -->
+        <div style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: #3d5500; animation: textBreathe 1.5s infinite ease-in-out;">
+          <span style="display: inline-block; width: 6px; height: 6px; border-radius: 9999px; background: #84cc16;"></span>
+          <span>मंडी भाव और मौसम लोड हो रहा है...</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

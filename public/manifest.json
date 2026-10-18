@@ -1,0 +1,15 @@
+{
+  "short_name": "KisanLink",
+  "name": "KisanLink - Farmer Digital Platform",
+  "icons": [
+    {
+      "src": "/leaf.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fffeef",
+  "theme_color": "#272c1a",
+  "display": "standalone"
+}

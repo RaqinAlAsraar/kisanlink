@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #fffeef;
+  --color-lime: #9fd700;
+  --color-slate: #446158;
+  --color-charcoal: #272c1a;
+}
+
+body {
+  background-color: #fffeef;
+  color: #272c1a;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fffeef;
+}
+::-webkit-scrollbar-thumb {
+  background: #44615840;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #44615880;
+}
+
+/* Spring Animations & Keyframes */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(24px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.025) translateY(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(159, 215, 0, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(159, 215, 0, 0);
+  }
+}
+
+@keyframes pulseGlowRed {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes soundWave {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+@keyframes laserScan {
+  0% {
+    top: 5%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-pop-in {
+  animation: popIn 0.28s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+.animate-pulse-glow-red {
+  animation: pulseGlowRed 1.8s infinite;
+}
+
+.animate-laser-scan {
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 1.8s ease-in-out infinite;
+}
+
+/* Sound wave bars */
+.sound-bar {
+  display: inline-block;
+  width: 3px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  animation: soundWave 0.9s ease-in-out infinite;
+}
+.sound-bar:nth-child(1) { animation-delay: 0.0s; height: 6px; }
+.sound-bar:nth-child(2) { animation-delay: 0.2s; height: 14px; }
+.sound-bar:nth-child(3) { animation-delay: 0.4s; height: 18px; }
+.sound-bar:nth-child(4) { animation-delay: 0.1s; height: 10px; }
+
+/* Interactive Tap Utilities */
+.interactive-tap {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+.interactive-tap:active {
+  transform: scale(0.93) translateY(1px);
+}
+
+/* Common UI Components */
+@layer components {
+  .btn-lime {
+    @apply inline-flex items-center justify-center gap-2 bg-[#9fd700] hover:bg-[#8cb800] text-[#272c1a] font-bold px-4 py-2.5 rounded-xl transition-all duration-150 active:scale-95 shadow-sm hover:shadow-md cursor-pointer select-none;
+  }
+  
+  .btn-slate {
+    @apply inline-flex items-center justify-center gap-2 bg-[#446158] hover:bg-[#385049] text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-150 active:scale-95 shadow-sm hover:shadow-md cursor-pointer select-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-[#446158] text-[#446158] hover:bg-[#44615815] font-semibold px-4 py-2 rounded-xl transition-all duration-150 active:scale-95 cursor-pointer select-none;
+  }
+
+  .card-cream {
+    @apply bg-white border border-[#44615820] rounded-2xl p-4 shadow-soft transition-all duration-200 hover:shadow-card;
+  }
+
+  .card-charcoal {
+    @apply bg-[#272c1a] text-white rounded-2xl p-5 shadow-elevated;
+  }
+
+  .badge-lime {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#9fd70025] text-[#3d5500] border border-[#9fd70060];
+  }
+
+  .badge-red {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200;
+  }
+
+  .badge-charcoal {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#272c1a] text-[#9fd700] border border-[#9fd70040];
+  }
+
+  /* Shimmer Skeleton Preloaders */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(68, 97, 88, 0.06) 0%,
+      rgba(159, 215, 0, 0.18) 50%,
+      rgba(68, 97, 88, 0.06) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeletonWave 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .skeleton-dark {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(159, 215, 0, 0.15) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeletonWave 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes skeletonWave {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes progressSlide {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  50% {
+    width: 65%;
+    opacity: 1;
+  }
+  85% {
+    width: 90%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-route-bar {
+  animation: progressSlide 0.5s ease-out forwards;
+}
+
+/* Safe Area Inset Utility for Modern Mobile Viewports */
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+@supports (padding: max(0px)) {
+  .safe-area-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+}
